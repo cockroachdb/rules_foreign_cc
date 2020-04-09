@@ -29,6 +29,12 @@ TOOLCHAIN_MAPPINGS = [
         file = "@rules_foreign_cc//foreign_cc/private/shell_toolchain/toolchains/impl:macos_commands.bzl",
     ),
     ToolchainMapping(
+        exec_compatible_with = [
+            "@bazel_tools//platforms:freebsd",
+        ],
+        file = "@rules_foreign_cc//foreign_cc/private/shell_toolchain/toolchains/impl:bsd_commands.bzl",
+    ),
+    ToolchainMapping(
         file = "@rules_foreign_cc//foreign_cc/private/shell_toolchain/toolchains/impl:default_commands.bzl",
     ),
 ]
