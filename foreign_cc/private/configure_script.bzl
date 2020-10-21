@@ -56,6 +56,12 @@ def create_configure_script(
             " ".join(autoconf_options),
         ).lstrip())
 
+    if autoconf and configure_in_place:
+        script.append("{} autoconf {}".format(
+            " ".join(["{}=\"{}\"".format(key, autoconf_env_vars[key]) for key in autoconf_env_vars]),
+            " ".join(autoconf_options),
+        ).lstrip())
+
     if autoreconf and configure_in_place:
         script.append("{} autoreconf {}".format(
             " ".join(["{}=\"{}\"".format(key, autoreconf_env_vars[key]) for key in autoreconf_env_vars]),
